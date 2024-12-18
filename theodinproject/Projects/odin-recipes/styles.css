@@ -1,0 +1,20 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(27, 27, 27);
+    color: white;
+}
+.center {
+    text-align: center;
+}
+
+.imgpage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 500px;
+}
+
+.indexText {
+    margin: 20px;
+}
