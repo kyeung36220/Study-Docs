@@ -1,0 +1,3 @@
+10 HTML tags: h1, h2, h3, img, link, script, a, div, button, br
+5 CSS properties: text-align, font-size, background-color, color, margin-top
+Description: I used javascript in my contact page to show my contact information after pressing the button and I used bootstrap to have a collpasable pop-up when pressing the project button.

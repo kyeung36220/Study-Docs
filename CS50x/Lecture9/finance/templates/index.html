@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main Menu
+{% endblock %}
+
+{% block main %}
+    <p style="margin: auto; font-size: 30px; font-weight: bold;";>
+        Cash: {{ cash }}
+    </p>
+    <p style="margin-bottom: 40px; font-size: 30px; font-weight: bold;";>
+        Grand Total: {{ grand_total }}
+    </p>
+
+    <table class="table" style="margin: auto; font-size: 20px;";>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Current Price</th>
+                <th>Total Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if portfolio_exists %}
+                {% for stock in portfolio %}
+                    <tr>
+                        <td>{{ stock.name }}</td>
+                        <td>{{ stock.quantity }}</td>
+                        <td>${{ stock.current_price }}</td>
+                        <td>${{ stock.total_value }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

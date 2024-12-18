@@ -1,0 +1,2 @@
+1. I would say their audio aura is energetic and joyful because of the high danceability (0.71646) and high energy (0.65906).
+2. I think including tempo and loudness would be a good indicator of whether the aura is sad or happy where low tempo and low loudness would equal more sad music and higher loudness and higher tempo would be happier music.

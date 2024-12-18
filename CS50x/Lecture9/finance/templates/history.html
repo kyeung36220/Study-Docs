@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block main %}
+<p style="margin-bottom: 40px; font-size: 30px; font-weight: bold;";>
+    History
+</p>
+<table class="table" style="margin: auto; font-size: 20px;";>
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Symbol</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if history_exists %}
+            {% for entry in history %}
+                <tr>
+                    <td>{{ entry.bought_or_sold }}</td>
+                    <td>{{ entry.symbol }}</td>
+                    <td>${{ entry.price }}</td>
+                    <td>{{ entry.quantity }}</td>
+                    <td>{{ entry.date }}</td>
+                    <td>{{ entry.time }}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

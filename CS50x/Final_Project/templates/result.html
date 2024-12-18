@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="dark-mode">
+    <div class="container text-center mt-5">
+        <h1 class="text-light"> {{ weather.city }} Weather Forecast</h1>
+        <div class="row mt-4" id="forecast-container">
+            {% for day in weather['daily'] %}
+                <div class="col-md-3">
+                    <div class="card weather-card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ day.date }}</h5>  <!-- Display day of the week -->
+                            <img src="/static/icons/{{ day.icon }}" alt="Weather Icon" class="weather-icon" onerror="this.src='/static/icons/default.png';">
+                            <p class="card-text" style="margin: auto; font-size: 20px;">Max: {{ day.max_temp }}°F</p>
+                            <p class="card-text" style="margin: auto; font-size: 20px;">Min: {{ day.min_temp }}°F</p>
+
+                            <!-- Dropdown for hourly weather -->
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    View Hourly Weather
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    {% for hour in weather['hourly'][loop.index0 * 24:(loop.index0 + 1) * 24] %}
+                                        <li>
+                                            <a class="dropdown-item" href="#">
+                                                {{ hour.hour }}
+                                                {{ hour.temperature }}°F
+                                                <img src="/static/icons/{{ hour.icon }}" alt="Weather Icon" class="hourly-icon">
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if loop.index == 4 %}
+                    </div><div class="row mt-4 text-center" id="forecast-container">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript (ensure this is included for dropdown functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

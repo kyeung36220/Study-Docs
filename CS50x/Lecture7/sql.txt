@@ -1,0 +1,34 @@
+.import favorites.csv favorites
+
+SELECT COUNT(*) FROM favorites WHERE language = 'C'
+
+SELECT * FROM shows WHERE id IN
+(SELECT show_id FROM ratings WHERE rating >= 6.0);
+
+SELECT title,rating FROM shows JOIN ratings ON shows.id = ratings.show_id WHERE rating >=6.0 LIMIT 10;
+
+one-to-many relationship will have duplication in table
+
+Nested query example (Hint: work backwards from what you know and go where you want to go):
+SELECT name FROM people WHERE id IN =
+(SELECT person_id FROM stars WHERE show_id =
+(SELECT id FROM shows WHERE title = 'The Office' AND year = 2005));
+
+Nested query example 2:
+SELECT title FROM shows WHERE id IN
+(SELECT show_id FROM stars WHERE person_id =
+(SELECT id FROM people WHERE name = 'Steve Carrell'));
+
+Joining multiple tables:
+SELECT title FROM shows
+JOIN stars on shows.id = stars.show_id
+JOIN people ON stars.person_id = people.id
+WHERE name = 'Steve Carell';
+
+Timer is .timer ON
+
+Index
+CREATE INDEX title_index ON shows(title)
+
+db.execute("BEGIN TRANSACTION")
+db.execute("COMMIT")

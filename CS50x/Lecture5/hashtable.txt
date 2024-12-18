@@ -1,0 +1,17 @@
+hashtables are just an array of linked lists
+
+typedef struct node
+{
+    char *name;
+    char *number;
+    struct node *next;
+}
+
+node *table[26];
+---------------------------------------------------------------------------
+#include <ctype.h>
+
+int hash(const char *word)
+{
+    return toupper(word[0]) - 'A'; <- returns number of letter
+}
