@@ -5,6 +5,7 @@ This is documentation of my self-studying journey to being a programmer! This ha
 Date Completed: Ongoing  
 Languages: HTML, CSS, JavaScript  
 Standout Projects:
+- Landing Page ([Link](https://github.com/kyeung36220/landing-page) / [Live Preview](https://kyeung36220.github.io/landing-page/))
 
 ## CS50x: Introduction to Computer Science
 Date Completed: 12/12/2024  
