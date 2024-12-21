@@ -26,7 +26,5 @@ const sumAll = function(int1, int2) {
     return sum
 };
 
-console.log(sumAll(10,[1,2,3]))
-
 // Do not edit below this line
 module.exports = sumAll;
