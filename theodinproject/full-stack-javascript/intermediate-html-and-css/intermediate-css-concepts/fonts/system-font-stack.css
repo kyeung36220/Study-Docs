@@ -1,0 +1,17 @@
+/* can import foreign fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* to make sure not to use default html font */
+body {
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+  
+/* to import own downloaded font */
+@font-face {
+  font-family: my-cool-font;
+  src: url(../fonts/the-font-file.woff);
+}
+
+h1 {
+  font-family: my-cool-font, sans-serif;
+}
