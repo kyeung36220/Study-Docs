@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form>
+  <h2>Enter your comment</h2>
+  <div>
+    <div>
+      <div><label for="name">Name:</label></div>
+      <input type="text" name="name" id="name">
+    </div>
+    <div>
+      <div><label for="comment">Comment:</label></div>
+      <textarea cols="35" rows="8" id="comment" maxlength="100"></textarea>
+    </div>
+    <div>
+      <button>Submit comment</button>
+    </div>
+  </div>
+</form>
+<form>
+    <div>
+      <div>
+        <label for="food">Pick your favorite food:</label>
+        <select type="select" id="food" name="food">
+  
+            <optgroup label="Mains">
+                <option value="salad">Salad</option>
+                <option selected value="curry">Curry</option>
+                <option value="pizza">Pizza</option>
+                <option value="fajitas">Fajitas</option>
+            </optgroup>
+  
+            <optgroup label="Snacks">
+                <option value="biscuits">Biscuits</option>
+                <option value="crisps">Crisps</option>
+                <option value="fruits">Fruit</option>
+                <option value="breadsticks">Breadsticks</option>
+            </optgroup> 
+
+        </select>
+      </div>
+      <div>
+        <button>Submit choice</button>
+      </div>
+    </div>
+  </form>
+  <form>
+    <div>
+      <div>
+        <label for="food">Enter your favorite food:</label>
+        <input type="text" name="food" id="food" list="auto">
+        <datalist id="auto">
+            <option>Salad</option>
+            <option>Curry</option>
+            <option>Pizza</option>
+            <option>Fajitas</option>
+            <option>Biscuits</option>
+            <option>Crisps</option>
+            <option>Fruit</option>
+            <option>Breadsticks</option>
+        </datalist>
+      </div>
+      <div>
+        <button>Submit choice</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div>
+          <div>
+            <div><label for="user_id">User ID:</label></div>
+            <input type="text" id="user_id" name="user_id">
+      
+          </div>
+          <div>
+            <div><label for="password">Password:</label></div>
+            <input type="password" id="password" name="password">
+      
+          </div>
+          <div>
+            <button type="button">Log In</button>
+          </div>
+        </div>
+      </form>  
+      <form>
+        <fieldset>
+          <legend>Who is your favorite pony?</legend>
+          <ul>
+            <div>
+                <input type="radio" name="pony" id="pinkie" value="pinkie" checked>
+                <label for="pinkie">Pinkie Pie</label>
+            </div>
+            <div>
+                <input type="radio" name="pony" id="rainbow" value="rainbow">
+                <label for="rainbow">Rainbow Dash</label>
+
+            </div>
+            <div>
+                <input type="radio" name="pony" id="twilight" value="twilight">
+                <label for="twilight">Twilight Sparkle</label>
+            </div>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>Hotdog preferences</legend>
+          <ul>
+            <div>
+              <input type="radio" name="hotdog" id="vegan" value="vegan" checked>
+              <label for="vegan">Vegan</label>
+            </div>
+            <div>
+              <input type="radio" name="hotdog" id="onions" value="onions">
+              <label for="onions">Onions</label>
+
+            </div>
+          </ul>
+        </fieldset>
+        <button>Submit</button>
+      </form>
+      <form>
+        <div>
+          <div>
+            <div><label for="gallery-img">Choose gallery images to upload</label></div>
+            <input type="file" name="file" id="gallery-img" accept="image/png, image/jpeg" multiple>
+          </div>
+        </div>
+      <button>Submit</button>
+    </form>
+</body>
+</html>
