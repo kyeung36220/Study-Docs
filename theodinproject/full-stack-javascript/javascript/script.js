@@ -54,12 +54,17 @@ const player1 = createPlayer(`steve`, 1)
 console.log(player1.increaseLevel())
 console.log(player1)
 
-function outer(){
+function outer() {
     const outerVar = 'Hey I am the outer Var';
-    
-    function inner(){
-        const innerVar = "hey I am an inner var";
-        console.log(innerVar);
-        console.log(outerVar);
+  
+    function inner() {
+      const innerVar = "hey I am an inner var";
+      console.log(innerVar); // Output: "hey I am an inner var"
+      console.log(outerVar); // Output: "Hey I am the outer Var"
     }
+  
+    return inner; // Return the inner function
   }
+  
+  const myInnerFunc = outer(); // Get the inner function
+  myInnerFunc(); 
