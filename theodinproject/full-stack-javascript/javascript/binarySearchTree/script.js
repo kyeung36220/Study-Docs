@@ -1,4 +1,4 @@
-class Node {
+export class Node {
     constructor(value) {
         this.value = value
         this.leftChild = null
@@ -149,7 +149,7 @@ class Node {
 }
 
 
-class Tree {
+export class Tree {
     constructor(array) {
         this.root = null
         this.buildTree(array)
@@ -224,9 +224,184 @@ class Tree {
 
         return root
     }
+
+    find(value) {
+        if (this.root.getValue === value) {
+            return this.root
+        }
+        else {
+            return findRec(this.root, value)
+        }
+
+        function findRec(node, value) {
+            if (node.getValue === value) {
+                return node
+            }
+            else if (node.getValue < value) {
+                if (node.getRightChild === null) {
+                    return "Value does not exist"
+                }
+                else {
+                    return findRec(node.getRightChild, value)
+                }
+                
+            }
+            else {
+                if (node.getLeftChild === null) {
+                    return "Value does not exist"
+                }
+                else {
+                    return findRec(node.getLeftChild, value)
+                }
+            }
+        }
+    }
+
+    levelOrder()  {
+        const result = []
+        const queue = []
+        if (this.root === null) {
+            return queue
+        }
+
+        queue.push(this.root)
+        while (queue.length > 0) {
+            if (queue[0].getLeftChild != null) {
+                queue.push(queue[0].getLeftChild)
+            }
+            if (queue[0].getRightChild != null) {
+                queue.push(queue[0].getRightChild)
+            }
+            result.push(queue[0].getValue)
+            queue.shift()
+        }
+        return result
+
+    }
+
+    preorder() {
+        const result = []  
+        preorderRec(this.root)
+        return result
+
+        function preorderRec(root) {
+            if (root === null) {
+                return
+            }
+            result.push(root.getValue)
+            preorderRec(root.getLeftChild)
+            preorderRec(root.getRightChild)
+        }
+    }
+
+    inorder() {
+        const result = []  
+        inorderRec(this.root)
+        return result
+
+        function inorderRec(root) {
+            if (root === null) {
+                return
+            }
+            inorderRec(root.getLeftChild)
+            result.push(root.getValue)
+            inorderRec(root.getRightChild)
+        }
+    }
+
+    postorder() {
+        const result = []  
+        postorderRec(this.root)
+        return result
+
+        function postorderRec(root) {
+            if (root === null) {
+                return
+            }
+            postorderRec(root.getLeftChild)
+            postorderRec(root.getRightChild)
+            result.push(root.getValue)
+        }
+    }
+
+    height(node) {
+        let maxLeftHeight = 0
+        let maxRightHeight = 0
+        heightRec(node)
+        let maxHeight = Math.max(maxLeftHeight, maxRightHeight)
+        return maxHeight
+        
+        function heightRec(node) {
+            if (node === null) {
+                return
+            }
+            if (node.getLeftChild) {
+                maxLeftHeight += 1
+                heightRec(node.getLeftChild)
+            }
+            if (node.getRightChild) {
+                maxRightHeight += 1
+                heightRec(node.getRightChild)
+            }
+
+        }
+    }
+
+    depth(node) {
+        const value = node.getValue
+        let depthCounter = 0
+        if (this.root.getValue === value) {
+            return depthCounter
+        }
+        else {
+            depthRec(this.root, value)
+            return depthCounter
+        }
+
+        function depthRec(node, value) {
+            if (node.getValue === value) {
+                return
+            }
+            else if (node.getValue < value) {
+                if (node.getRightChild === null) {
+                    throw new Error("Value does not exist") 
+                }
+                else {
+                    depthCounter += 1
+                    return depthRec(node.getRightChild, value)
+                }
+                
+            }
+            else {
+                if (node.getLeftChild === null) {
+                    throw new Error("Value does not exist") 
+                }
+                else {
+                    depthCounter += 1
+                    return depthRec(node.getLeftChild, value)
+                }
+            }
+        }
+    }
 }
 
-const prettyPrint = (node, prefix = "", isLeft = true) => {
+export function isBalanced(tree) {
+    let root = tree.getRoot
+    let leftHeight = tree.height(root.getLeftChild)
+    let rightHeight = tree.height(root.getRightChild)
+
+    if (Math.abs(leftHeight - rightHeight) > 1) {
+        return false
+    }
+    return true
+}
+
+export function rebalance(tree) {
+    let sortedArray = tree.inorder()
+    return new Tree(sortedArray)
+}
+
+export const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
     }
@@ -239,5 +414,3 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
     }
   };
 
-const tree = new Tree([128, 872, 691, 404, 203, 999, 293, 264, 41, 799, 438, 265, 807, 665, 552, 655, 735, 43, 209, 802] )
-prettyPrint(tree.getRoot)
