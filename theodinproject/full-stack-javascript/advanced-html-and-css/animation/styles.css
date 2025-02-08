@@ -1,0 +1,17 @@
+body {
+    background-color: black;
+}
+
+#picture {
+    will-change: animation;
+    animation: 4s change-size 2 alternate;
+}
+
+@keyframes change-size {
+    from {
+        transform: scale(1)
+    }
+    to {
+        transform: scale(2)
+    }
+}
